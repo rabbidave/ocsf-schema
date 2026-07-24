@@ -21,6 +21,18 @@
     "issuer_uid": {
       "description": "The unique identifier of the trusted issuing authority (e.g., an OAuth authorization server, cloud STS, IAM broker, orchestration gateway, or SDK wrapper) that generated this delegation. Enables verification that delegation IDs were issued by an authorized component rather than self-asserted by the delegate.",
       "requirement": "recommended"
+    },
+    "scopes": {
+      "description": "The scopes granted at this delegation node - the specific permissions the delegate is authorized to exercise on the principal's behalf. Comparing a delegation's scopes with its parent's reveals scope attenuation across the chain.",
+      "requirement": "optional"
+    },
+    "audience": {
+      "description": "The intended audience of this delegation - the service, resource, or party the delegated authority is meant to be exercised against (e.g., the <code>aud</code> claim of an issued token).",
+      "requirement": "optional"
+    },
+    "expiration_time": {
+      "description": "The time when this delegation's granted authority expires. After this time the delegation no longer conveys authority, independent of any revocation.",
+      "requirement": "optional"
     }
   }
 }
